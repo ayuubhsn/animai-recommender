@@ -1,4 +1,4 @@
-# AnimAI 🎌
+# AnimeAI 🎌
 
 An AI-powered anime recommendation app that helps you discover new anime based on your mood, taste, and preferences.
 
