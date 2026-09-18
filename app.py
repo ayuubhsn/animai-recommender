@@ -155,4 +155,5 @@ with tab3:
             svar = chat_karakter(valgt, melding, st.session_state.historikk)
         
         st.session_state.historikk.append({"role": "assistant", "content": svar})
+        st.rerun()
         st.chat_message("assistant").write(svar)

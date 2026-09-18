@@ -2,8 +2,8 @@ import requests
 
 def hent_data():
     query = """
-    query {
-      Page(page: 1, perPage: 100) {
+    query ($page: Int){
+      Page(page: $page, perPage: 50) {
         media(type: ANIME, sort: POPULARITY_DESC) {
           title { english romaji }
           genres
@@ -15,11 +15,17 @@ def hent_data():
       }
     }
     """
+    alle_anime = []
 
-    response = requests.post(
-        "https://graphql.anilist.co",
-        json={"query": query}
-    )
+    for side in range(1, 11):
+      response = requests.post(
+          "https://graphql.anilist.co",
+          json={
+            "query": query,
+            "variables": {"page": side}
+          }
+      )
+      alle_anime += response.json()["data"]["Page"]["media"]
 
-    return response.json()
+    return alle_anime
 

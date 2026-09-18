@@ -63,7 +63,7 @@ def chat_karakter(karakter, melding, historikk):
         messages=[
             {"role": "system", "content": karakterer[karakter]},
             *historikk,
-            {"role": "user", "content": melding}
+            
         ]
     )
 

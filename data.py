@@ -4,7 +4,7 @@ from anilist import hent_data
 #hente data fra api
 data =  hent_data()
 rader = []
-for anime in data["data"]["Page"]["media"]:
+for anime in data:
     rader.append({
         'tittel': anime["title"]["english"] or anime["title"]["romaji"],
         'score' : anime["averageScore"],
